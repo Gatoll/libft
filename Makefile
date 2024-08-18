@@ -6,15 +6,18 @@
 #    By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 19:14:20 by kaokazak          #+#    #+#              #
-#    Updated: 2024/04/26 19:24:18 by kaokazak         ###   ########.fr        #
+#    Updated: 2024/08/19 04:17:43 by kaokazak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
+RM = rm -f
+
 SRCSDIR = .
-FILES = ft_atoi.c \
+SRCS = ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
 		ft_isalnum.c \
@@ -59,27 +62,27 @@ BONUS = ft_lstadd_back.c \
 		ft_lstnew.c \
 		ft_lstsize.c
 
-OBJS = $(FILES:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
 BONUS_OBJS = $(BONUS:.c=.o)
 
 all: $(NAME)
 	
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 	
 bonus: $(OBJS) $(BONUS_OBJS)
 	touch bonus
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
 	
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS) bonus
+	$(RM) $(OBJS) $(BONUS_OBJS) bonus
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
