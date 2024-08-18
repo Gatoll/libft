@@ -6,7 +6,7 @@
 #    By: kaokazak <kaokazak@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 19:14:20 by kaokazak          #+#    #+#              #
-#    Updated: 2024/08/19 04:17:43 by kaokazak         ###   ########.fr        #
+#    Updated: 2024/08/19 04:40:25 by kaokazak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-SRCSDIR = .
 SRCS = ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
